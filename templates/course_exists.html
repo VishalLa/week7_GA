@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Course Exists</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Course Already Exists</h1>
+        <button onclick="window.location.href='{{ url_for('course_controller.course_index') }}'">Go Back</button>
+    </div>
+</body>
+</html>

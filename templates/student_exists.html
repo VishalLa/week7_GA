@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Student Exists</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <p>
+            Student already exists. Please use different Roll Number!!
+        </p>
+        
+        <button onclick="window.location.href='{{ url_for('student_controller.index') }}'">
+            Go Back
+        </button>
+    </div>
+</body>
+</html>

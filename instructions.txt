@@ -1,0 +1,47 @@
+- All the HTML files should be kept inside a folder named "templates" and the images and CSS files should be kept in "static" and "templates" folder must reside in the root directory.
+
+The database URI must be same as 
+
+    -> app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///week7_database.sqlite3'
+
+
+
+CRUD operations for student
+
+-> Home page (URI = '/') displays and index page. The page must display a table with the list of current existing students in the database.
+-> If the user clicks the "Add Student" button, flask app should send a GET request to an endpoint "/student/create" which should display a HTML form
+
+-> If user clicks the submit button the browser should send a POST request to your flask app '/student/create' URI. The flask app should then create a new student object and add it into the database and should redirect to the home page (URI = '/') and the student should be added into the table.
+Note: The roll number in each row of table should be clicks
+-> If the roll number already exists, then the user should be redirect to an HTML page,  which should display an appropriate message and have a button to navigate back to the home page (URI = '/')
+
+
+--> If user clicks the "Update" button on the home page flask should send GET request to an endpoint '/student/<int:student_id>/update', which should display an which should display an HTML form. 
+-> If user clicks on submit a POST request is send to flask app endpoint = '/student/<int:student_id>/update' it should update the student and corresponding enrollment into the database and then redirect to home page
+
+--> If user clicks the "Delete" button on the home page it should send GET request to endpoint '/student/<int:student_id>/delete' which should delete the student and all the corresponding enrollment from the database and redirect to the home page.
+
+--> If the user clicks on the roll number of any row in the table in the home page of flask app 
+the app should send send GET request to an endpoint '/student/<ind:student_id>', which should show all the information (student details and enrollment details) in an HTML page. The HTML page should also have a button "Go Back" to navigate back to the home page. The table must not exists if there are not enrollment
+
+-> Every record in the enrollment thable have a "withdraw" button, which clicked, flask app should send a GET request to an endpoint '/student/<int:student_id>/withdraw/<int:course_id>' which should remove the course current enrollments of the student from the databaseand redirect to the home page
+
+
+
+
+
+CURD Operations for Courses 
+-->when user clicks on Go to courses the browser send GET request to flask app at '/courses' URI and then it should navigate the user to courses page.
+It should have a Go to Students and it should send GET request to flask app at URI '/'
+-> If the user clicks the 'Add course' button, flask app should send GET request to an endpoint '/course/create', which should display an HTML from
+-> If user clicks the submit button, the browser should send a POST request to flask app '/course/create' URI. The flask app should then create a course object and add it into the database and, it should redirect to the course page (URI = '/courses') 
+Note that the course code in each row os table should be clickable.
+->If the course already exists, then the user should be redirect to an HTML page, which should display an appropriate message, and have a button to navigate back to the course page (URI = '/courses') 
+
+--> If user clicks the Update button on the courses page URI '/courses' flask app should send GET request to an endpoint '/course/<int:course_id>/update' which should display HTML for.
+-> If the user clicks the submit button, the browser should send a POST request to flask app '/course/<int:course_id>/update' URI
+->The flask app then update the targeted course int the database and redirect to the course page (URI = '/courses)
+
+-->If the user clicks the Delete button on the courses page (URI = '/courses) flask app should send GET request to an endpoint '/course/<ind:course_id>/delete', which should delete the course form the database and redirect to the home page (URI = '/')
+
+--> If the user clicks on the course code of any row in the table in the courses page of the flask app (URI = '/course') the app should send a GET request to an endpoint '/course/<int:course>' which should show all the information in an HTML page. The HTML page should also have a button labelled 'Go Back' to navigate back to the courses page URI = '/courses'. The HTML must be 2 HTML tables in this page
